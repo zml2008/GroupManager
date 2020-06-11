@@ -172,7 +172,7 @@ public enum CommandPermission {
     SPONGE_OPTION_UNSET("option.unset", Type.SPONGE),
     SPONGE_OPTION_CLEAR("option.clear", Type.SPONGE);
 
-    public static final String ROOT = "luckperms.";
+    public static final String ROOT = "groupmanager.";
 
     private final String node;
 

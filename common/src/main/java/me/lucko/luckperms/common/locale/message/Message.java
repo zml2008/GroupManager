@@ -45,13 +45,13 @@ public enum Message {
     /*
      * General & Commands
      */
-    PREFIX("&7[&b&lL&3&lP&7] ", false),
+    PREFIX("&7[&b&lG&3&lM&7] ", false),
 
     VIEW_AVAILABLE_COMMANDS_PROMPT("&3Use &a/{} help &3to view available commands.", true),
     NO_PERMISSION_FOR_SUBCOMMANDS("&3You do not have permission to use any sub commands.", true),
     FIRST_TIME_SETUP(
             "{PREFIX}&3It seems that no permissions have been setup yet!" + "\n" +
-            "{PREFIX}&3Before you can use any of the LuckPerms commands in-game, you need to use the console to give yourself access." + "\n" +
+            "{PREFIX}&3Before you can use any of the GroupManager commands in-game, you need to use the console to give yourself access." + "\n" +
             "{PREFIX}&3Open your console and run:" + "\n" +
             "{PREFIX} &3&l> &a{} user {} permission set luckperms.* true" + "\n\n" +
             "{PREFIX}&3After you've done this, you can begin to define your permission assignments and groups." + "\n" +
