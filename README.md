@@ -21,7 +21,7 @@ For more information, see the wiki article on [Why GroupManager?](https://github
 The latest downloads & other useful links can be found on the project homepage at [groupmanager.net](https://luckperms.net/).
 
 ## Building
-LuckPerms uses Gradle to handle dependencies & building.
+GroupManager uses Gradle to handle dependencies & building.
 
 #### Requirements
 * Java 8 JDK or newer
