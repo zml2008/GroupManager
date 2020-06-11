@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of GroupManager, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -40,10 +40,10 @@ import java.util.stream.Stream;
 
 public class BungeeCommandExecutor extends Command implements TabExecutor {
     /** The main command name */
-    private static final String NAME = "luckpermsbungee";
+    private static final String NAME = "groupmanagerbungee";
 
     /** The command aliases */
-    private static final String[] ALIASES = {"lpb", "bperm", "bperms", "bpermission", "bpermissions"};
+    private static final String[] ALIASES = {"gmb", "luckpermsbungee", "lpb", "bperm", "bperms", "bpermission", "bpermissions"};
 
     /** The main command name + aliases, prefixed with '/' */
     private static final String[] SLASH_ALIASES = Stream.concat(

@@ -43,7 +43,7 @@ processResources {
 }
 
 shadowJar {
-    archiveName = "LuckPerms-Bukkit-${project.ext.fullVersion}.jar"
+    archiveName = "GroupManager-Bukkit-${project.ext.fullVersion}.jar"
 
     dependencies {
         include(dependency('net.luckperms:.*'))

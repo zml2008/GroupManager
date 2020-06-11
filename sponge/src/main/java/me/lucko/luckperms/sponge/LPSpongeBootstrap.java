@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of GroupManager, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -71,12 +71,11 @@ import java.util.concurrent.CountDownLatch;
  * Bootstrap plugin for LuckPerms running on Sponge.
  */
 @Plugin(
-        id = "luckperms",
-        name = "LuckPerms",
+        id = "groupmanager",
+        name = "GroupManager",
         version = "@version@",
         authors = "Luck",
         description = "A permissions plugin",
-        url = "https://luckperms.net",
         dependencies = {
                 // explicit dependency on spongeapi with no defined API version
                 @Dependency(id = "spongeapi")

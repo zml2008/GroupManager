@@ -1,4 +1,4 @@
-name: LuckPerms
+name: GroupManager
 version: ${pluginVersion}
 api: ["1.0.5"]
 description: A permissions plugin
@@ -9,6 +9,6 @@ main: me.lucko.luckperms.nukkit.LPNukkitBootstrap
 load: STARTUP
 
 commands:
-  luckperms:
+  groupmanager:
     description: Manage permissions
-    aliases: [lp, perm, perms, permission, permissions]
+    aliases: [gm, luckperms, lp, perm, perms, permission, permissions]

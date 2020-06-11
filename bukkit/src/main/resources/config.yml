@@ -1,17 +1,12 @@
 ####################################################################################################
 # +----------------------------------------------------------------------------------------------+ #
-# |                                   __         __   ___  __         __                         | #
-# |                        |    |  | /  ` |__/  |__) |__  |__)  |\/| /__`                        | #
-# |                        |___ \__/ \__, |  \  |    |___ |  \  |  | .__/                        | #
 # |                                                                                              | #
-# |                                     https://luckperms.net                                    | #
-# |                                                                                              | #
-# |  SOURCE CODE: https://github.com/lucko/LuckPerms                                             | #
-# |  WIKI:        https://github.com/lucko/LuckPerms/wiki                                        | #
-# |  BUG REPORTS: https://github.com/lucko/LuckPerms/issues                                      | #
+# |  SOURCE CODE: https://github.com/zml2008/GroupManager                                             | #
+# |  WIKI:        https://github.com/zml2008/GroupManager/wiki                                        | #
+# |  BUG REPORTS: https://github.com/zml2008/GroupManager/issues                                      | #
 # |                                                                                              | #
 # |  Each option in this file is documented and explained here:                                  | #
-# |   ==>  https://github.com/lucko/LuckPerms/wiki/Configuration                                 | #
+# |   ==>  https://github.com/zml2008/GroupManager/wiki/Configuration                                 | #
 # |                                                                                              | #
 # |  New options are not added to this file automatically. Default values are used if an         | #
 # |  option cannot be found. The latest config versions can be obtained at the link above.       | #
@@ -22,7 +17,7 @@
 # |                                                                                              | #
 # |                                      ESSENTIAL SETTINGS                                      | #
 # |                                                                                              | #
-# |                   Important settings that control how LuckPerms functions.                   | #
+# |                   Important settings that control how GroupManager functions.                   | #
 # |                                                                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
@@ -30,14 +25,14 @@
 #
 # - When set to "global" this setting is effectively ignored.
 # - In all other cases, the value here is added to all players in a "server" context.
-# - See: https://github.com/lucko/LuckPerms/wiki/Context
+# - See: https://github.com/zml2008/GroupManager/wiki/Context
 server: global
 
 # If the servers own UUID cache/lookup facility should be used when there is no record for a player
-# already in LuckPerms.
+# already in GroupManager.
 #
 # - When this is set to 'false', commands using a player's username will not work unless the player
-#   has joined since LuckPerms was first installed.
+#   has joined since GroupManager was first installed.
 # - To get around this, you can use a player's uuid directly in the command, or enable this option.
 # - When this is set to 'true', the server facility is used. This may use a number of methods,
 #   including checking the servers local cache, or making a request to the Mojang API.
@@ -50,14 +45,14 @@ use-server-uuid-cache: false
 # |                                                                                              | #
 # |                                       STORAGE SETTINGS                                       | #
 # |                                                                                              | #
-# |                Controls which storage method LuckPerms will use to store data.               | #
+# |                Controls which storage method GroupManager will use to store data.               | #
 # |                                                                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
 # How the plugin should store data
 #
 # - The various options are explained in more detail on the wiki:
-#   https://github.com/lucko/LuckPerms/wiki/Storage-types
+#   https://github.com/zml2008/GroupManager/wiki/Storage-types
 #
 # - Possible options:
 #
@@ -97,7 +92,7 @@ data:
   # - Specify as "host:port" if differs
   address: localhost
 
-  # The name of the database to store LuckPerms data in.
+  # The name of the database to store GroupManager data in.
   # - This must be created already. Don't worry about this setting if you're using MongoDB.
   database: minecraft
 
@@ -147,11 +142,11 @@ data:
       #useSSL: false
       #verifyServerCertificate: false
 
-  # The prefix for all LuckPerms SQL tables.
+  # The prefix for all GroupManager SQL tables.
   # - Change this is you want to use different tables for different servers.
   table-prefix: 'luckperms_'
 
-  # The prefix to use for all LuckPerms collections. Change this if you want to use different
+  # The prefix to use for all GroupManager collections. Change this if you want to use different
   # collections for different servers. The default is no prefix.
   mongodb-collection-prefix: ''
 
@@ -181,12 +176,12 @@ split-storage:
 # |                                                                                              | #
 # |                            UPDATE PROPAGATION & MESSAGING SERVICE                            | #
 # |                                                                                              | #
-# |    Controls the ways in which LuckPerms will sync data & notify other servers of changes.    | #
+# |    Controls the ways in which GroupManager will sync data & notify other servers of changes.    | #
 # |     These options are documented on greater detail on the wiki under "Instant Updates".      | #
 # |                                                                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
-# This option controls how frequently LuckPerms will perform a sync task.
+# This option controls how frequently GroupManager will perform a sync task.
 #
 # - A sync task will refresh all data from the storage, and ensure that the most up-to-date data is
 #   being used by the plugin.
@@ -197,27 +192,27 @@ sync-minutes: -1
 
 # If the file watcher should be enabled.
 #
-# - When using a file-based storage type, LuckPerms can monitor the data files for changes, and
+# - When using a file-based storage type, GroupManager can monitor the data files for changes, and
 #   automatically update when changes are detected.
 # - If you don't want this feature to be active, set this option to false.
 watch-files: true
 
 # Define which messaging service should be used by the plugin.
 #
-# - If enabled and configured, LuckPerms will use the messaging service to inform other connected
+# - If enabled and configured, GroupManager will use the messaging service to inform other connected
 #   servers of changes.
 # - Use the command "/lp networksync" to manually push changes.
 # - Data is NOT stored using this service. It is only used as a messaging platform.
 #
 # - If you decide to enable this feature, you should set "sync-minutes" to -1, as there is no need
-#   for LuckPerms to poll the database for changes.
+#   for GroupManager to poll the database for changes.
 #
 # - Possible options:
 #   => sql       Uses the SQL database to form a queue system for communication. Will only work when
 #                'storage-method' is set to MySQL or MariaDB. This is chosen by default if the
 #                option is set to 'auto' and SQL storage is in use. Set to 'notsql' to disable this.
 #   => pluginmsg Uses the plugin messaging channels to communicate with the proxy.
-#                LuckPerms must be installed on your proxy & all connected servers backend servers.
+#                GroupManager must be installed on your proxy & all connected servers backend servers.
 #                Won't work if you have more than one proxy.
 #   => lilypad   Uses LilyPad pub-sub to push changes. You need to have the LilyPad-Connect plugin
 #                installed.
@@ -226,15 +221,15 @@ watch-files: true
 #   => auto      Attempts to automatically setup a messaging service using redis or sql.
 messaging-service: auto
 
-# If LuckPerms should automatically push updates after a change has been made with a command.
+# If GroupManager should automatically push updates after a change has been made with a command.
 auto-push-updates: true
 
-# If LuckPerms should push logging entries to connected servers via the messaging service.
+# If GroupManager should push logging entries to connected servers via the messaging service.
 push-log-entries: true
 
-# If LuckPerms should broadcast received logging entries to players on this platform.
+# If GroupManager should broadcast received logging entries to players on this platform.
 #
-# - If you have LuckPerms installed on your backend servers as well as a BungeeCord proxy, you
+# - If you have GroupManager installed on your backend servers as well as a BungeeCord proxy, you
 #   should set this option to false on either your backends or your proxies, to avoid players being
 #   messaged twice about log entries.
 broadcast-received-log-entries: true
@@ -253,7 +248,7 @@ redis:
 # |                                                                                              | #
 # |                                    CUSTOMIZATION SETTINGS                                    | #
 # |                                                                                              | #
-# |              Settings that allow admins to customize the way LuckPerms operates.             | #
+# |              Settings that allow admins to customize the way GroupManager operates.             | #
 # |                                                                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
@@ -270,10 +265,10 @@ redis:
 #   => deny         the command will just fail if you try to add another node with the same expiry
 temporary-add-behaviour: deny
 
-# Controls how LuckPerms will determine a users "primary" group.
+# Controls how GroupManager will determine a users "primary" group.
 #
 # - The meaning and influence of "primary groups" are explained in detail on the wiki.
-# - The preferred approach is to let LuckPerms automatically determine a users primary group
+# - The preferred approach is to let GroupManager automatically determine a users primary group
 #   based on the relative weight of their parent groups.
 #
 # - Possible options:
@@ -379,7 +374,7 @@ meta-formatting:
 # |                                                                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
-# The algorithm LuckPerms should use when traversing the "inheritance tree".
+# The algorithm GroupManager should use when traversing the "inheritance tree".
 #
 # - Possible options:
 #   => breadth-first            See: https://en.wikipedia.org/wiki/Breadth-first_search
@@ -449,11 +444,11 @@ meta-value-selection:
 
 # If the plugin should apply wildcard permissions.
 #
-# - If set to true, LuckPerms will detect wildcard permissions, and resolve & apply all registered
+# - If set to true, GroupManager will detect wildcard permissions, and resolve & apply all registered
 #   permissions matching the wildcard.
 apply-wildcards: true
 
-# If LuckPerms should resolve and apply permissions according to the Sponge style implicit wildcard
+# If GroupManager should resolve and apply permissions according to the Sponge style implicit wildcard
 # inheritance system.
 #
 # - That being: If a user has been granted "example", then the player should have also be
@@ -463,26 +458,26 @@ apply-sponge-implicit-wildcards: false
 
 # If the plugin should parse regex permissions.
 #
-# - If set to true, LuckPerms will detect regex permissions, marked with "r=" at the start of the
+# - If set to true, GroupManager will detect regex permissions, marked with "r=" at the start of the
 #   node, and resolve & apply all registered permissions matching the regex.
 apply-regex: true
 
 # If the plugin should complete and apply shorthand permissions.
 #
-# - If set to true, LuckPerms will detect and expand shorthand node patterns.
+# - If set to true, GroupManager will detect and expand shorthand node patterns.
 apply-shorthand: true
 
 # If the plugin should apply Bukkit child permissions.
 #
 # - Plugin authors can define custom permissions structures for their plugin, which will be resolved
-#   and used by LuckPerms if this setting is enabled.
+#   and used by GroupManager if this setting is enabled.
 apply-bukkit-child-permissions: true
 
 # If the plugin should apply Bukkit default permissions.
 #
 # - Plugin authors can define permissions which should be given to all users by default, or setup
 #   permissions which should/shouldn't be given to opped players.
-# - If this option is set to false, LuckPerms will ignore these defaults.
+# - If this option is set to false, GroupManager will ignore these defaults.
 apply-bukkit-default-permissions: true
 
 # If the plugin should apply attachment permissions.
@@ -490,7 +485,7 @@ apply-bukkit-default-permissions: true
 # - Other plugins on the server are able to add their own "permission attachments" to players.
 # - This allows them to grant players additional permissions which last until the end of the
 #   session, or until they're removed.
-# - If this option is set to false, LuckPerms will not include these attachment permissions when
+# - If this option is set to false, GroupManager will not include these attachment permissions when
 #   considering if a player should have access to a certain permission.
 apply-bukkit-attachment-permissions: true
 
@@ -522,7 +517,7 @@ group-weight:
 # |                                                                                              | #
 # |     A number of more niche settings for tweaking and changing behaviour. The section also    | #
 # | contains toggles for some more specialised features. It is only necessary to make changes to | #
-# |                  these options if you want to fine-tune LuckPerms behaviour.                 | #
+# |                  these options if you want to fine-tune GroupManager behaviour.                 | #
 # |                                                                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
@@ -536,7 +531,7 @@ group-weight:
 #   disabled.
 enable-ops: true
 
-# Enables or disables a special permission based system in LuckPerms for controlling OP status.
+# Enables or disables a special permission based system in GroupManager for controlling OP status.
 #
 # - If set to true, any user with the permission "luckperms.autoop" will automatically be granted
 #   server operator status. This permission can be inherited, or set on specific servers/worlds,
@@ -547,7 +542,7 @@ enable-ops: true
 # - It is recommended that you use this option instead of assigning a single '*' permission.
 auto-op: false
 
-# Defines if "opped" players should be able to use all LuckPerms commands by default.
+# Defines if "opped" players should be able to use all GroupManager commands by default.
 #
 # - Set to false to only allow users who have the permissions access to the commands
 commands-allow-op: true
@@ -558,7 +553,7 @@ commands-allow-op: true
 
 # If Vault lookups for offline players on the main server thread should be enabled.
 #
-# LuckPerms has a "catch" for plugins attempting to perform unsafe offline player data lookups
+# GroupManager has a "catch" for plugins attempting to perform unsafe offline player data lookups
 # from the main server thread. This catch raises an exception (causes an error to occur) when unsafe
 # lookups are made, instead of allowing the lookup to happen, which would likely cause the server
 # to lag.
@@ -567,14 +562,14 @@ commands-allow-op: true
 # option to 'true.
 vault-unsafe-lookups: false
 
-# Controls which group LuckPerms should use for NPC players when handling Vault requests.
+# Controls which group GroupManager should use for NPC players when handling Vault requests.
 #
-# - As NPCs aren't actually real players, LuckPerms does not load any user data for them. This
+# - As NPCs aren't actually real players, GroupManager does not load any user data for them. This
 #   becomes an issue when plugins want to check for their permissions using Vault.
 # - As a solution, Vault checks for NPCs fallback to a group, which is defined below.
 vault-npc-group: default
 
-# Controls how LuckPerms should consider the OP status of NPC players when handing Vault requests.
+# Controls how GroupManager should consider the OP status of NPC players when handing Vault requests.
 #
 # - If you want NPCs to have the same permissions as "normal" players, set this option to false.
 # - If you want NPCs to have OP status, set this option to true.
@@ -601,25 +596,25 @@ vault-ignore-world: false
 # | Miscellaneous (and rarely used) settings                                                     | #
 # +----------------------------------------------------------------------------------------------+ #
 
-# If LuckPerms should produce extra logging output when it handles logins.
+# If GroupManager should produce extra logging output when it handles logins.
 #
 # - Useful if you're having issues with UUID forwarding or data not being loaded.
 debug-logins: false
 
-# If LuckPerms should allow usernames with non alphanumeric characters.
+# If GroupManager should allow usernames with non alphanumeric characters.
 #
 # - Note that due to the design of the storage implementation, usernames must still be 16 characters
 #   or less.
 allow-invalid-usernames: false
 
-# If LuckPerms should allow a users primary group to be removed with the 'parent remove' command.
+# If GroupManager should allow a users primary group to be removed with the 'parent remove' command.
 #
 # - When this happens, the plugin will set their primary group back to default.
 prevent-primary-group-removal: false
 
-# If LuckPerms should update the list of commands sent to the client when permissions are changed.
+# If GroupManager should update the list of commands sent to the client when permissions are changed.
 update-client-command-list: true
 
-# If LuckPerms should attempt to resolve Vanilla command target selectors for LP commands.
+# If GroupManager should attempt to resolve Vanilla command target selectors for LP commands.
 # See here for more info: https://minecraft.gamepedia.com/Commands#Target_selectors
 resolve-command-selectors: false

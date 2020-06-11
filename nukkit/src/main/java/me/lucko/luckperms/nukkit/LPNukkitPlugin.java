@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of GroupManager, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -124,7 +124,7 @@ public class LPNukkitPlugin extends AbstractLuckPermsPlugin {
 
     @Override
     protected void registerCommands() {
-        PluginCommand<?> command = (PluginCommand<?>) this.bootstrap.getServer().getPluginCommand("luckperms");
+        PluginCommand<?> command = (PluginCommand<?>) this.bootstrap.getServer().getPluginCommand("groupmanager");
         this.commandManager = new NukkitCommandExecutor(this, command);
         this.commandManager.register();
     }
@@ -270,7 +270,7 @@ public class LPNukkitPlugin extends AbstractLuckPermsPlugin {
 
         if (user != null) {
             Map<String, Boolean> permData = user.getCachedData().getPermissionData(this.contextManager.getQueryOptions(player)).getPermissionMap();
-            value = permData.getOrDefault("luckperms.autoop", false);
+            value = permData.getOrDefault("groupmanager.autoop", false);
         } else {
             value = false;
         }

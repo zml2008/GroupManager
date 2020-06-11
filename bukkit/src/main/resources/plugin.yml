@@ -1,4 +1,4 @@
-name: LuckPerms
+name: GroupManager
 version: ${pluginVersion}
 description: A permissions plugin
 author: Luck
@@ -6,6 +6,8 @@ website: https://luckperms.net
 
 main: me.lucko.luckperms.bukkit.LPBukkitBootstrap
 load: STARTUP
+
+provides: [LuckPerms]
 
 # Mark the plugin as 1.13 compatible to avoid CB having to perform quite as much unnecessary
 # remapping when the plugin is loaded. Note that despite what this setting might otherwise imply,
@@ -22,6 +24,6 @@ loadbefore: [Vault]
 softdepend: [LilyPad-Connect]
 
 commands:
-  luckperms:
+  groupmanager:
     description: Manage permissions
-    aliases: [lp, perm, perms, permission, permissions]
+    aliases: [gm, luckperms, lp, perm, perms, permission, permissions]

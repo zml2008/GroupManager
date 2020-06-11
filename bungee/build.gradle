@@ -29,7 +29,7 @@ processResources {
 }
 
 shadowJar {
-    archiveName = "LuckPerms-Bungee-${project.ext.fullVersion}.jar"
+    archiveName = "GroupManager-Bungee-${project.ext.fullVersion}.jar"
 
     dependencies {
         include(dependency('net.luckperms:.*'))

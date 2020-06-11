@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of GroupManager, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -138,7 +138,7 @@ public class LPSpongePlugin extends AbstractLuckPermsPlugin {
     @Override
     protected void registerCommands() {
         this.commandManager = new SpongeCommandExecutor(this);
-        this.bootstrap.getGame().getCommandManager().register(this.bootstrap, this.commandManager, "luckperms", "lp", "perm", "perms", "permission", "permissions");
+        this.bootstrap.getGame().getCommandManager().register(this.bootstrap, this.commandManager, "groupmanager", "gm", "luckperms", "lp", "perm", "perms", "permission", "permissions");
     }
 
     @Override
@@ -235,7 +235,7 @@ public class LPSpongePlugin extends AbstractLuckPermsPlugin {
     }
 
     private Path resolveConfig() {
-        Path path = this.bootstrap.getConfigDirectory().resolve("luckperms.conf");
+        Path path = this.bootstrap.getConfigDirectory().resolve("groupmanager.conf");
         if (!Files.exists(path)) {
             try {
                 MoreFiles.createDirectoriesIfNotExists(this.bootstrap.getConfigDirectory());

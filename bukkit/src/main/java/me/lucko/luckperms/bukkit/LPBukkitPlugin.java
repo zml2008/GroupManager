@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of GroupManager, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -141,7 +141,7 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
 
     @Override
     protected void registerCommands() {
-        PluginCommand command = this.bootstrap.getCommand("luckperms");
+        PluginCommand command = this.bootstrap.getCommand("groupmanager");
         if (command == null) {
             getLogger().severe("Unable to register /luckperms command with the server");
             return;
