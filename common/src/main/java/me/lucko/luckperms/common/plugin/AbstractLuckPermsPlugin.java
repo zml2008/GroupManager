@@ -374,7 +374,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
     public static String getPluginName() {
         LocalDate date = LocalDate.now();
         if (date.getMonth() == Month.APRIL && date.getDayOfMonth() == 1) {
-            return "LuckyPerms";
+            return "Still definitely GroupManager";
         }
         return "GroupManager";
     }
